@@ -46,19 +46,36 @@ jobs:
           pnpm install --frozen-lockfile
 
       - name: Build with Next.js (static export)
-        run: pnpm build
+        run: |
+          echo "NODE: $(node -v)"
+          echo "pnpm: $(pnpm -v)"
+          pnpm build
         # with output: "export" in next.config.js this creates ./out
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-      - name: Debug ./out contents
+      - name: Debug ./out contents (extra)
         run: |
-          echo "-- files in project root --"
+          set -eux
+          echo "-- current dir: $(pwd) --"
+          echo "-- node version --"
+          node -v
+          echo "-- pnpm version --"
+          pnpm -v
+          echo "-- root files --"
           ls -la
-          echo "-- files in out/ --"
-          if [ -d ./out ]; then ls -la ./out || true; else echo "out/ directory missing"; exit 1; fi
+          if [ ! -d ./out ]; then echo "ERROR: out/ directory missing"; exit 1; fi
+          echo "-- out/ tree --"
+          find out -maxdepth 3 -type d -print -exec ls -la {} \; || true
+          echo "-- out size --"
+          du -sh out || true
+          echo "-- sample files (head) --"
+          head -n 30 out/index.html || true
+          echo "-- creating a tarball for debugging --"
+          tar -czf out-debug.tar.gz out || true
+          ls -la out-debug.tar.gz || true
 
   # Deployment job
   deploy:
