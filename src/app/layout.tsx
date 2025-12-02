@@ -8,7 +8,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sujjeee.com"),
+  metadataBase: new URL("https://smat-ctrl.com"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@sujjeeee",
+    creator: "@smat_ctrl",
   },
   icons: {
     icon: "/favicon.ico",
