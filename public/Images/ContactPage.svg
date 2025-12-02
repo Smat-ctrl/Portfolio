@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="100%" height="100%" fill="#10b981"/>
+  <g fill="#fff" font-family="Inter, Arial, sans-serif" font-weight="700">
+    <text x="60" y="120" font-size="48">Contact Page</text>
+    <text x="60" y="180" font-size="20" opacity="0.9">Sheridan — placeholder</text>
+  </g>
+</svg>
