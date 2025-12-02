@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Carousel,
@@ -6,43 +6,43 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
-} from "@/components/ui/carousel"
-import { useWindow } from "@/hooks/use-window"
-import { useImageStore } from "@/lib/store/use-image"
-import { cn } from "@/lib/utils"
-import Autoplay from "embla-carousel-autoplay"
-import Image from "next/image"
-import * as React from "react"
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { useWindow } from "@/hooks/use-window";
+import { useImageStore } from "@/lib/store/use-image";
+import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import * as React from "react";
 
 export interface ImageCarouselProps {
-  imageUrls: string[]
+  imageUrls: string[];
 }
 
 export function ImageCarousel({ imageUrls }: ImageCarouselProps) {
-  const { isDesktop, isMobile } = useWindow()
-  const [isImageLoading, setImageLoading] = React.useState(true)
-  const [api, setApi] = React.useState<CarouselApi | null>(null)
-  const [current, setCurrent] = React.useState(0)
-  const { setSelectedImage, setDialogOpen } = useImageStore()
+  const { isDesktop, isMobile } = useWindow();
+  const [isImageLoading, setImageLoading] = React.useState(true);
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
+  const [current, setCurrent] = React.useState(0);
+  const { setSelectedImage, setDialogOpen } = useImageStore();
 
   function handleImageClick(url: string) {
-    setSelectedImage(url)
-    setDialogOpen(true)
+    setSelectedImage(url);
+    setDialogOpen(true);
   }
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   function handleDotClick(index: number) {
-    api?.scrollTo(index)
+    api?.scrollTo(index);
   }
 
   return (
@@ -51,34 +51,35 @@ export function ImageCarousel({ imageUrls }: ImageCarouselProps) {
       setApi={setApi}
       plugins={[
         Autoplay({
-          delay: 2000
-        })
+          delay: 2000,
+        }),
       ]}
     >
       <CarouselContent>
         {imageUrls.map((url, index) => (
           <CarouselItem key={index}>
             <div
-              className=" rounded-xl border border-muted overflow-hidden cursor-pointer"
+              className="rounded-xl border border-muted overflow-hidden cursor-pointer flex items-center justify-center bg-[rgba(0,0,0,0.04)]"
               onClick={() => handleImageClick(url)}
+              style={{ minHeight: isDesktop ? 420 : 240 }}
             >
-              <Image
-                src={url}
-                alt="screenshorts"
-                width={1000}
-                height={1000}
-                sizes="100vw"
-                className="rounded-xl aspect-[1200/850]"
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "auto",
-                  objectPosition: "center",
-                  WebkitFilter: isImageLoading ? "blur(8px)" : "none",
-                  transition: "all 0.5s ease"
-                }}
-                onLoad={() => setImageLoading(false)}
-              />
+              <div className="w-full h-full flex items-center justify-center p-2">
+                <Image
+                  src={url}
+                  alt={`screenshot-${index}`}
+                  width={1200}
+                  height={800}
+                  sizes="100vw"
+                  className="rounded-xl max-h-[85vh] max-w-full"
+                  style={{
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    WebkitFilter: isImageLoading ? "blur(8px)" : "none",
+                    transition: "all 0.5s ease",
+                  }}
+                  onLoad={() => setImageLoading(false)}
+                />
+              </div>
             </div>
           </CarouselItem>
         ))}
@@ -111,5 +112,5 @@ export function ImageCarousel({ imageUrls }: ImageCarouselProps) {
         </div>
       )}
     </Carousel>
-  )
+  );
 }

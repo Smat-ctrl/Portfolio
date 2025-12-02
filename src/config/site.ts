@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Suraj Gupta",
+  name: "Samuel Mathew",
   description: "Software Developer.",
   url: "https://sujjeee.com",
   ogImage: "https://sujjeee.com/opengraph-image.png",

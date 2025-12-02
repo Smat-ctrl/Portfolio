@@ -1,47 +1,49 @@
-import { MDX } from "@/components/mdx"
-import { BlogPagination } from "@/components/sections/blog-pagination"
-import { TableOfContents } from "@/components/sections/table-of-content"
-import { allPosts } from "content-collections"
-import { ChevronLeft, MoveLeft } from "lucide-react"
-import { Metadata } from "next"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import React from "react"
-import { readingTime } from "reading-time-estimator"
+import { MDX } from "@/components/mdx";
+import { BlogPagination } from "@/components/sections/blog-pagination";
+import { TableOfContents } from "@/components/sections/table-of-content";
+import { allPosts } from "content-collections";
+import { ChevronLeft, MoveLeft } from "lucide-react";
+import { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import React from "react";
+import { readingTime } from "reading-time-estimator";
 
 interface BlogPage {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
 export function generateMetadata({ params }: BlogPage): Metadata {
-  const post = allPosts.find((post) => post._meta.path === params.slug)
+  const post = allPosts.find((post) => post._meta.path === params.slug);
 
   if (!post) {
     return {
-      title: "Post Not Found"
-    }
+      title: "Post Not Found",
+    };
   }
 
   return {
     title: {
-      absolute: post.title
+      absolute: post.title,
     },
-    description: post.description
-  }
+    description: post.description,
+  };
 }
 
 export default function BlogPage({ params }: BlogPage) {
-  const post = allPosts.find((post) => post._meta.path === params.slug)
-  if (!post) return notFound()
+  const post = allPosts.find((post) => post._meta.path === params.slug);
+  if (!post) return notFound();
 
   return (
     <div className="px-4 sm:px-7 py-4 animation-delay-300 w-full ">
-      <div className="w-fit top-[10rem] right-auto left-[2rem] hidden xl:top-[3rem] xl:left-[12rem] xl:right-auto xl:block fixed mt-0 h-full  justify-start space-y-4 transition text-[14px] ">
+      <div className="w-fit top-[10rem] right-auto left-[2rem] hidden xl:top-[3rem] xl:left-[12rem] xl:right-auto xl:block fixed mt-0 h-full  justify-start space-y-4 transition text-[14px] z-50 pointer-events-auto">
         <Link
           href={"/"}
-          className="text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group"
+          className="text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group z-50"
+          aria-label="Back to home"
+          tabIndex={0}
         >
           <ChevronLeft className="size-4 ml-1 transition group-hover:-translate-x-1" />{" "}
           <span>Back Home</span>
@@ -51,7 +53,9 @@ export default function BlogPage({ params }: BlogPage) {
       <div className="mb-8">
         <Link
           href={"/"}
-          className=" mb-4 xl:hidden text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group"
+          className=" mb-4 xl:hidden text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group z-50"
+          aria-label="Back to home"
+          tabIndex={0}
         >
           <MoveLeft className="size-4 ml-1 transition group-hover:-translate-x-1" />{" "}
           <span className="text-xs">Back Home</span>
@@ -73,9 +77,9 @@ export default function BlogPage({ params }: BlogPage) {
       <BlogPagination posts={allPosts} />
       <TableOfContents />
     </div>
-  )
+  );
 }
 
 const sortedPosts = allPosts.sort((a, b) => {
-  return new Date(b.time).getTime() - new Date(a.time).getTime()
-})
+  return new Date(b.time).getTime() - new Date(a.time).getTime();
+});

@@ -2,15 +2,15 @@ import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger
-} from "@/components/ui/tooltip"
-import { cn } from "@/lib/utils"
-import { Newsreader } from "next/font/google"
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+import { Newsreader } from "next/font/google";
 
 const newsreader = Newsreader({
   style: "italic",
-  subsets: ["latin"]
-})
+  subsets: ["latin"],
+});
 
 export function AboutMe() {
   return (
@@ -23,18 +23,19 @@ export function AboutMe() {
             newsreader.className
           )}
         >
-          Full-Stack Engineer
+          Computer Scientist
         </span>{" "}
-        focused on building modern, secure, and optimized web apps that follow
-        industry standards.
+        with experience in Android (Jetpack Compose), C++, and full-stack
+        workflows, focused on writing clean, dependable code. I improve fast,
+        adapt easily, and care about building software that makes sense for the
+        user.
       </p>
       <p className="leading-relaxed">
-        Inspired by{" "}
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
               <span className="italic hover:underline underline-offset-4">
-                Kaizen,{" "}
+                {" "}
               </span>
             </TooltipTrigger>
             <TooltipContent align="start">
@@ -43,10 +44,12 @@ export function AboutMe() {
               </span>
             </TooltipContent>
           </Tooltip>
-        </TooltipProvider>{" "}
-        strive for continuous learning and improvement, always seeking
-        innovative ways to refine my skills and knowledge.
+        </TooltipProvider>
+        {}
+        I’m driven by the idea that computer science can transform everyday
+        struggles into meaningful, practical solutions. Everything I build is
+        centered on making life easier, better, and more accessible for others.
       </p>
     </section>
-  )
+  );
 }

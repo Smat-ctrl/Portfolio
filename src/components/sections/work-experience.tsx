@@ -1,15 +1,15 @@
-import { buttonVariants } from "@/components/ui/button"
-import { ShellSection } from "@/components/ui/shell"
-import { workExperience } from "@/lib/constants"
-import { cn } from "@/lib/utils"
-import Link from "next/link"
-import type React from "react"
+import { buttonVariants } from "@/components/ui/button";
+import { ShellSection } from "@/components/ui/shell";
+import { workExperience } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import type React from "react";
 
 export interface WorkProps {
-  href: string
-  title: string
-  status?: "freelancing" | "contract"
-  buttonText?: string
+  href: string;
+  title: string;
+  status?: "freelancing" | "contract";
+  buttonText?: string;
 }
 
 export function WorkExperience() {
@@ -31,11 +31,11 @@ export function WorkExperience() {
             )}
           </div>
           <Link
-            href={work.href}
+            href={`/${work.href}`}
             className={buttonVariants({
               variant: "outline",
               size: "xs",
-              className: " text-xs text-muted-foreground"
+              className: " text-xs text-muted-foreground",
             })}
           >
             {work.buttonText ? work.buttonText : "View Details "}
@@ -43,5 +43,5 @@ export function WorkExperience() {
         </div>
       ))}
     </ShellSection>
-  )
+  );
 }

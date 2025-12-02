@@ -3,89 +3,36 @@ import { WorkProps } from "@/components/sections/work-experience"
 
 export const projects = [
   {
-    title: "threads-clone",
-    description: "threads clone with t3 stack.",
-    href: "https://threadss-clone.vercel.app",
+    title: "NutriGuard",
+    description: "An Android application that helps users track the food in their kitchen, monitor expiry dates, and reduce food waste.",
+    href: "https://github.com/Smat-ctrl/NutriGuard",
     status: "maintained"
   },
   {
-    title: "linknode",
-    description: "minimalistic link in bio.",
-    href: "https://linknode.vercel.app",
+    title: "Watapoly",
+    description: "Watapoly is a C++ Monopoly-style board game that simulates turn-based gameplay, property management, and player interactions through a modular object-oriented design.",
+    href: "https://github.com/Smat-ctrl/Watapoly",
     status: "maintained"
   },
   {
-    title: "chillguy",
-    description: "meme generator.",
-    href: "https://just-chill-guy.vercel.app",
+    title: "DataScrape",
+    description: "This Python script automates the process of scraping company data from the WCA World Directory website using Selenium and OpenPyXL, storing the results in an Excel file.",
+    href: "https://github.com/Smat-ctrl/DataScrape",
     status: "maintained"
   },
   {
-    title: "artoons",
-    description: "cartoon-style ai illustrations.",
-    href: "https://artoons.vercel.app",
+    title: "Zombie Survival Game",
+    description: "A top-down, diep.io-style zombie survival game where players upgrade their character, dodge swarms of enemies, and fight to survive increasingly difficult waves",
+    href: "https://github.com/Smat-ctrl/Zombie_Survival",
     status: "maintained"
-  },
-  {
-    title: "mindmap",
-    description: "map your thoughts.",
-    href: "https://map-your-thoughts.vercel.app/",
-    status: "maintained"
-  },
-  {
-    title: "svgls",
-    description: "a cli for adding svg icons.",
-    href: "https://github.com/sujjeee/svgls",
-    status: "archived"
-  },
-  {
-    title: "gemai",
-    description: "a cli rag chatbot with gemini.",
-    href: "https://github.com/sujjeee/gemai",
-    status: "archived"
-  },
-  {
-    title: "dubco",
-    description: "a cli for shortening urls.",
-    href: "https://github.com/sujjeee/dubco",
-    status: "archived"
-  },
-  {
-    title: "peepstudio",
-    description: "random avatar generator.",
-    href: "https://peepstudio.vercel.app",
-    status: "archived"
-  },
-  {
-    title: "playboard",
-    description: "collaborative drawing app.",
-    href: "https://playboard.vercel.app",
-    status: "archived"
-  },
-  {
-    title: "securelink",
-    description: "secure link shortener.",
-    href: "https://securelink.vercel.app",
-    status: "archived"
   }
 ] as ProjectProps[]
 
 export const workExperience = [
   {
-    title: "Tapify",
-    href: "building-saas-from-scratch",
-    buttonText: "Building SaaS from Scratch"
-  },
-  {
-    title: "PDFScribe",
-    href: "solving-sellers-problem",
+    title: "Digital Developer",
+    href: "building-sheridan-digital-infrastructure",
     status: "contract",
-    buttonText: "Solving Sellers Problem"
-  },
-  {
-    title: "OnShow",
-    href: "learn-new-things-by-doing",
-    status: "freelancing",
-    buttonText: "Learn New Things by Doing"
+    buttonText: "Constructing a Professional Academic Website"
   }
 ] as WorkProps[]

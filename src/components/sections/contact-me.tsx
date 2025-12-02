@@ -1,5 +1,5 @@
-import { ShellSection } from "@/components/ui/shell"
-import Link from "next/link"
+import { ShellSection } from "@/components/ui/shell";
+import Link from "next/link";
 
 export function ContactMe() {
   return (
@@ -7,31 +7,23 @@ export function ContactMe() {
       <div className="prose prose-zinc dark:prose-invert text-[15px]">
         <p>
           If you're looking to connect for a project, feel free to reach out via{" "}
-          <CustomLink href="mailto:contact@sujjeee.com?subject=Hi%2C%20Suraj!">
+          <CustomLink href="mailto:samuel.mathewv@gmail.com?subject=Hi%2C%20Samuel!">
             Email
           </CustomLink>
-          . Or just ping me on{" "}
-          <CustomLink href="https://discordapp.com/users/1056124751527030794">
-            Discord
-          </CustomLink>
           . You can also follow me on{" "}
-          <CustomLink href="https://git.new/sujjeee/?ref=sujjeee.com">
+          <CustomLink href="https://github.com/smat-ctrl?ref=smat-ctrl.com">
             Github
-          </CustomLink>{" "}
-          and{" "}
-          <CustomLink href="https://dub.sh/sujjeee/?ref=sujjeee.com">
-            X
           </CustomLink>{" "}
           if you find my work interesting.
         </p>
       </div>
     </ShellSection>
-  )
+  );
 }
 
 interface CustomLinkProps {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }
 
 export function CustomLink({ href, children }: CustomLinkProps) {
@@ -44,5 +36,5 @@ export function CustomLink({ href, children }: CustomLinkProps) {
     >
       {children}
     </Link>
-  )
+  );
 }
