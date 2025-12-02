@@ -53,6 +53,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Debug ./out contents
+        run: |
+          echo "-- files in project root --"
+          ls -la
+          echo "-- files in out/ --"
+          if [ -d ./out ]; then ls -la ./out || true; else echo "out/ directory missing"; exit 1; fi
 
   # Deployment job
   deploy:
