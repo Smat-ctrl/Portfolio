@@ -2,8 +2,9 @@ const { withContentCollections } = require("@content-collections/next")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // your next.js config
+  output: "export",          // <- static HTML export for GitHub Pages
   images: {
+    unoptimized: true,       // <- required for static export + next/image
     remotePatterns: [
       {
         protocol: "https",
