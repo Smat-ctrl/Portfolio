@@ -39,11 +39,14 @@ jobs:
           # This injects the correct basePath and disables server-side image optimization
           static_site_generator: next
 
-      - name: Install dependencies
-        run: npm install
+      - name: Enable Corepack and install dependencies with pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install --frozen-lockfile
 
       - name: Build with Next.js (static export)
-        run: npm run build
+        run: pnpm build
         # with output: "export" in next.config.js this creates ./out
 
       - name: Upload artifact

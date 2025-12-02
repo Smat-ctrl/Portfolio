@@ -32,6 +32,10 @@ export function generateMetadata({ params }: BlogPage): Metadata {
   };
 }
 
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({ slug: post._meta.path }));
+}
+
 export default function BlogPage({ params }: BlogPage) {
   const post = allPosts.find((post) => post._meta.path === params.slug);
   if (!post) return notFound();
