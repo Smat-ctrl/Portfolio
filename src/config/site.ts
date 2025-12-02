@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Samuel Mathew",
   description: "Software Developer.",
   url: "https://smat-ctrl.com",
-  ogImage: "https://smat-ctrl.com/opengraph-image.png",
+  ogImage: "/opengraph-image",
   links: {
     twitter: "https://x.com/smat_ctrl",
     github: "https://github.com/smat-ctrl",
