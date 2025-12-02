@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { Newsreader } from "next/font/google";
 
 const newsreader = Newsreader({
-  style: "italic",
   subsets: ["latin"],
 });
 
