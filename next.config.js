@@ -12,9 +12,10 @@ const nextConfig = {
       }
     ]
   },
-  // Important for project pages under /portfolio
-  basePath: "/portfolio",
-  assetPrefix: "/portfolio/"
+  // Important for project pages — set to repository name (case-sensitive)
+  // GitHub Pages URLs are case-sensitive; this must match the repository name
+  basePath: "/Portfolio",
+  assetPrefix: "/Portfolio/"
 }
 
 module.exports = withContentCollections(nextConfig)
