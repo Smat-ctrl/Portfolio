@@ -2,17 +2,19 @@ const { withContentCollections } = require("@content-collections/next")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",          // <- static HTML export for GitHub Pages
+  output: "export",
   images: {
-    unoptimized: true,       // <- required for static export + next/image
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "utfs.io"
       }
     ]
-  }
+  },
+  // Important for project pages under /portfolio
+  basePath: "/portfolio",
+  assetPrefix: "/portfolio/"
 }
 
-// withContentCollections must be the outermost plugin
 module.exports = withContentCollections(nextConfig)
