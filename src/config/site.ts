@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Samuel Mathew",
   description: "Software Developer.",
   url: "https://smat-ctrl.com",
-  ogImage: "/opengraph-image",
+  ogImage: "https://smatctrl.netlify.app/Portfolio/opengraph-image.svg",
   links: {
     twitter: "https://x.com/smat_ctrl",
     github: "https://github.com/smat-ctrl",
