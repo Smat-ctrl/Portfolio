@@ -44,7 +44,7 @@ export default function BlogPage({ params }: BlogPage) {
     <div className="px-4 sm:px-7 py-4 animation-delay-300 w-full ">
       <div className="w-fit top-[10rem] right-auto left-[2rem] hidden xl:top-[3rem] xl:left-[12rem] xl:right-auto xl:block fixed mt-0 h-full  justify-start space-y-4 transition text-[14px] z-50 pointer-events-auto">
         <Link
-          href={"/"}
+          href={"/Portfolio"}
           className="text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group z-50"
           aria-label="Back to home"
           tabIndex={0}
@@ -56,7 +56,7 @@ export default function BlogPage({ params }: BlogPage) {
 
       <div className="mb-8">
         <Link
-          href={"/"}
+          href={"/Portfolio"}
           className=" mb-4 xl:hidden text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group z-50"
           aria-label="Back to home"
           tabIndex={0}
